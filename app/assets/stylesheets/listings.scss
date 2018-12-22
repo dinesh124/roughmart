@@ -1,0 +1,13 @@
+// Place all the styles related to the Listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.carousel-inner > .item >img{
+  min-height : 300px;
+  max-height : 300px;
+  width : 100%;
+}
+
+.container{
+  height:300px;
+}

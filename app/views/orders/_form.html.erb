@@ -1,9 +1,6 @@
 <%= form_for([@listing, @order]) do |form| %>
   <% if order.errors.any? %>
-    <div id="error_explanation" class="alert alert-warning alert-dismissible" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+    <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
       <ul>
@@ -13,23 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= form.label :address %><br>
-    <%= form.text_field :address, class:"form-control" %>
+	
+<div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>	
+	
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :city %><br>
-    <%= form.text_field :city , class:"form-control"%>
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :state %><br>
-    <%= form.text_field :state, class:"form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.submit "Complete Order", class:"btn btn-success"%>
+  <div class="actions">
+    <%= form.submit %>
   </div>
 <% end %>

@@ -15,7 +15,6 @@ class OrdersTest < ApplicationSystemTestCase
     click_on "New Order"
 
     fill_in "Address", with: @order.address
-    fill_in "City", with: @order.city
     fill_in "State", with: @order.state
     click_on "Create Order"
 
@@ -28,7 +27,6 @@ class OrdersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Address", with: @order.address
-    fill_in "City", with: @order.city
     fill_in "State", with: @order.state
     click_on "Update Order"
 

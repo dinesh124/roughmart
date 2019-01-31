@@ -1,2 +1,3 @@
-gmail_username: 'roughmart4me@gmail.com'
-gmail_password: 'Dinesh@1998'
+defaults: &defaults
+  user: roughmart4me@gmail.com
+  secret: Dinesh@1998

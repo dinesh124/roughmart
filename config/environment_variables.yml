@@ -1,0 +1,6 @@
+development:
+  GMAIL_USERNAME: roughmart4me@gmail.com
+  GMAIL_PASSWORD: Dinesh@1998
+production:
+  GMAIL_USERNAME: roughmart4me@gmail.com
+  GMAIL_PASSWORD: Dinesh@1998

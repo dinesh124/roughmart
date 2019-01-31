@@ -1,17 +1,14 @@
-def create
-  @user = User.new(user_params)
-
-  respond_to do |format|
+class UsersController < ApplicationController
+  def create
+    # Create the user from params
+    @user = User.new(params[:user])
     if @user.save
-
-      # Sends email to user when user is created.
-      ExampleMailer.sample_email(@user).deliver
-
-      format.html { redirect_to @user, notice: 'User was successfully created.' }
-      format.json { render :show, status: :created, location: @user }
+      # Deliver the signup email
+      UserNotifier.send_signup_email(@user).deliver
+      redirect_to(@user, :notice => 'User created')
     else
-      format.html { render :new }
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+      render :action => 'new'
     end
   end
 end
+

@@ -53,9 +53,9 @@
 
 <% @listings.each do |listing| %>
 	<div class="col-md-4 ">
-	####   ####   ####   ####  
+	
 
-	<td><%= image_tag listing.image_url(:thumb).to_s%></td>
+	<td><%= image_tag listing.images_urls(:thumb)[1].to_s%></td>
 	<div class="caption">
 		<td><%= listing.name %></td><br>
         

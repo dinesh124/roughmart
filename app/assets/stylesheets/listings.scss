@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .carousel-inner > .item >img{
-  min-height : 300px;
+  min-height : 400px;
   max-height : 300px;
   width : 100%;
 }
@@ -11,3 +11,32 @@
 .container{
   height:300px;
 }
+
+.video1{
+        position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  //width: 80%;
+  //padding-left: 5%;
+  //padding-right:5%;
+  margin-bottom: 1px;
+  margin-top:1px;
+       }
+	 
+.video1 iframe,
+.video1 object,
+.video1 embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+video {
+  object-fit: contain;
+}	 
+	

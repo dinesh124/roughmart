@@ -1,8 +1,7 @@
 <div class="center">
-<h1>Your Purchase History </h1>
+<h2>Your Purchase History </h2>
 <table class="table table-striped table-bordered">
 <tr>
-	<th class="center">Image</th>
 	<th class="center">Item</th>
 	<th class="center">Seller</th>
 	<th class="center">Price</th>
@@ -10,7 +9,6 @@
 </tr>
 <% @orders.each do |order| %>
 	<tr>
-			      <td class="center"><%= image_tag order.listing.image.url(:thumb) %></td>
 
 		<td><%= order.listing.name %></td><br>
 		<td><%= order.seller.name %></td>
@@ -19,5 +17,8 @@
         
 	</tr>
 	<% end %>
+	<tr>
+			
+	</tr>
 </table>  
-		
+</div>

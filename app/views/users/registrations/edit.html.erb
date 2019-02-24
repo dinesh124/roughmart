@@ -3,20 +3,10 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 	
-	<div class="form-group"><%= f.label :name %><br />
+	<div class="field"><%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true %></div>
-
-<div class="form-group">
-    <%= f.label :image %>(Profile pic)
-    <%= f.file_field :image, multiple: false, class:"form-control"%>
-  </div>
-		
-	<div class="form-group"><%= f.label :Biodata %><br />TELL MORE ABOUT YOURSELF
-        <%= f.text_field :Biodata, autofocus: true %></div>
 	
-		
-		
-  <div class="form-group">
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -25,12 +15,7 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :mobile %><br />
-    <%= f.email_field :mobile, autofocus: true %>
-  </div>
-  
-  <div class="form-group">
+  <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
@@ -39,12 +24,12 @@
     <% end %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>

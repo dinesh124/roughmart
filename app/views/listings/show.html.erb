@@ -9,8 +9,7 @@
 	<div class="video1">
     <%=  video_tag @listing.video_url.to_s, :controls =>true if @listing.video?%>
 	</div>
-
-<p>
+	 <p>
   <strong>Name:</strong>
   <%= @listing.name %>
 </p>
@@ -33,4 +32,3 @@
 <%= link_to 'Edit', edit_listing_path(@listing) , class:'btn btn-link' %> |
 <% end %>
 <%= link_to 'Back', listings_path , class:'btn btn-link' %>
-</div>

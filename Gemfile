@@ -21,6 +21,8 @@ gem 'carrierwave'
 #
 gem 'devise'
 
+gem 'razorpay'
+
 gem 'mini_magick' # For different versions of an image
 
 #

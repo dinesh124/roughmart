@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
 
+	
     respond_to do |format|
       if @order.save
         format.html { redirect_to root_url, notice: 'Order was successfully created.' }
@@ -46,6 +47,12 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:address, :city, :state)
+      params.require(:order).permit(:address, :city, :state, :name ,:mobile ,:PinCode , :size)
     end
+	
+	def total
+		total=order.listing.price.sum
+	end
+	
+
 end

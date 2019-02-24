@@ -11,7 +11,23 @@
     </div>
   <% end %>
 	
-<div class="form-group">
+	
+		<div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :size %>
+    <%= form.text_field :size, class:"form-control" %>
+  </div>
+
+	<div class="form-group">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile, class:"form-control" %>
+  </div>
+  
+  <div class="form-group">
     <%= form.label :city %>
     <%= form.text_field :city, class:"form-control" %>
   </div>	
@@ -21,12 +37,68 @@
     <%= form.text_field :address, class:"form-control" %>
   </div>
 
+<div class="form-group">
+    <%= form.label :PinCode %>
+    <%= form.text_field :PinCode, class:"form-control" %>
+  </div>
+<div class="form-group">
+    <%= form.label :Landmark %>
+    <%= form.text_field :Landmark, class:"form-control" %>
+  </div>
+
+  
+
   <div class="form-group">
-    <%= form.label :state %>
-    <%= form.text_field :state, class:"form-control" %>
+    <%= form.label :Description %>(if any special changes)
+    <%= form.text_field :Description, class:"form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.submit class:"btn btn-primary"%>
+    <%=form.submit%>
+	<%=link_to "Checkout" %>
   </div>
+  
+  
+
+    <!-- Set up a container element for the button -->
+    <div id="paypal-button-container"> </div>
+	
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '0.01'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+					yourForm = document.getElementById('new_order');
+                Rails.fire(yourForm, 'submit');
+                });
+            }
+			
+			
+			
+			
+
+        }).render('#paypal-button-container');
+		
+		
+    </script>
+
+	
 <% end %>

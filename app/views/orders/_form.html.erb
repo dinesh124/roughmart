@@ -12,6 +12,8 @@
   <% end %>
 	
 	
+<div id="price" data-price="<%= @listing.price %>"></div>	
+	
 		<div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, class:"form-control" %>
@@ -61,16 +63,16 @@
     <!-- Include the PayPal JavaScript SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 
-    <script>
+    <script> 
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
-
+			
             // Set up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '0.01'
+                            value: <%= @listing.price %>
                         }
                     }]
                 });

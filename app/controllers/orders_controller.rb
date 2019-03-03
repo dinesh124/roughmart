@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @seller = @listing.user
 
+	
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
@@ -32,6 +33,7 @@ class OrdersController < ApplicationController
       if @order.save
         format.html { redirect_to root_url, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
+		      
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -54,5 +56,4 @@ end
 		total=order.listing.price.sum
 	end
 	
-
-end
+	end

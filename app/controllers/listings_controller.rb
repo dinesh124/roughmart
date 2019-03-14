@@ -15,6 +15,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+ahoy.track "controller", listing_id: @listing.id
   end
   
   def seller

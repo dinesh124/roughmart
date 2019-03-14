@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
+    ahoy.track "listing", listing_id: @listing.id
   end
 
   # POST /orders
@@ -27,10 +28,11 @@ class OrdersController < ApplicationController
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
-
+    @order.Email= current_user.email
 	
     respond_to do |format|
       if @order.save
+      
         format.html { redirect_to root_url, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
 		      

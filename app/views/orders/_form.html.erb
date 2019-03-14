@@ -58,12 +58,19 @@
  
 
     <!-- Set up a container element for the button -->
-    <div id="paypal-button-container"> </div>
+    <div id="paypal-button-container"><div id="BUYNOW",data:{id: <%=@listing.id%> }> </div></div>
 	
     <!-- Include the PayPal JavaScript SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 
     <script> 
+    document.addEventListener("turbolinks:load",function(){
+document.querySelector("#BUYNOW").addEventListener("click",function(e){
+    ahoy.track("BUYNOW",e.target.dataset);
+});
+});
+    
+    
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
 			
@@ -85,6 +92,7 @@
                     alert('Transaction completed by ' + details.payer.name.given_name + '!');
 					yourForm = document.getElementById('new_order');
                 Rails.fire(yourForm, 'submit');
+                
                 });
             }
 			

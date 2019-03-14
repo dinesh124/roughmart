@@ -1,5 +1,20 @@
+
 <p id="notice"><%= notice %></p>
 
+
+<script type="text/javascript">
+onload=function(){
+var mydiv=document.getElementById('video1');
+if(!mydiv.hasChildNodes()){mydiv.style.display='none'}
+}
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+    document.querySelector("#listing").addEventListener("DOMContentLoaded", function(e) {
+    
+    ahoy.track("Viewed listing", e.target.dataset);
+    });
+    });
+    </script>
 
  <% @listing.images_urls.each do |url| %>
 	<div class="col-md-4 ">
@@ -23,7 +38,7 @@
   <strong>Price:</strong>
   <%= @listing.price %>
 </p>
-
+<div id="listing",data:{id: <%=@listing.id%> }></div>
 	<%= link_to "BUY IT NOW", new_listing_order_path(@listing), class: "btn btn-primary"%> |
 
 

@@ -1,3 +1,10 @@
+<style>
+h2{
+font-family: "Times New Roman", Times, serif;
+}
+</style>
+
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -48,7 +55,7 @@
 
 
 
-<h2>Listings</h2>
+<h2><b>Listings</b></h2>
 <div class="row">
 
 <% @listings.each do |listing| %>
@@ -59,7 +66,7 @@
 	<div class="caption">
 		<td><%= listing.name %></td><br>
         
-		<td><%= listing.price %>rs</td>
+		<td><%= listing.price %>$ only</td>
 		<td><%= "Sold by #{listing.user.name}" %></td>
 
 		
@@ -73,6 +80,8 @@
 		</div>
 	</div>
 <% end %>
+
+
 </div>
 
 

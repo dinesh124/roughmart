@@ -20,7 +20,7 @@ gem 'duktape'
 gem 'carrierwave'
 #
 gem 'devise'
-
+gem 'ahoy_matey'
 gem 'razorpay'
 
 gem 'mini_magick' # For different versions of an image

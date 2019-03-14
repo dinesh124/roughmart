@@ -10,7 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_02_115057) do
+ActiveRecord::Schema.define(version: 2019_03_13_190819) do
+
+  create_table "ahoy_events", force: :cascade do |t|
+    t.integer "visit_id"
+    t.integer "user_id"
+    t.string "name"
+    t.text "properties"
+    t.datetime "time"
+    t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time"
+    t.index ["user_id"], name: "index_ahoy_events_on_user_id"
+    t.index ["visit_id"], name: "index_ahoy_events_on_visit_id"
+  end
+
+  create_table "ahoy_visits", force: :cascade do |t|
+    t.string "visit_token"
+    t.string "visitor_token"
+    t.integer "user_id"
+    t.string "ip"
+    t.text "user_agent"
+    t.text "referrer"
+    t.string "referring_domain"
+    t.text "landing_page"
+    t.string "browser"
+    t.string "os"
+    t.string "device_type"
+    t.string "country"
+    t.string "region"
+    t.string "city"
+    t.string "utm_source"
+    t.string "utm_medium"
+    t.string "utm_term"
+    t.string "utm_content"
+    t.string "utm_campaign"
+    t.string "app_version"
+    t.string "os_version"
+    t.string "platform"
+    t.datetime "started_at"
+    t.integer "listing_id"
+    t.index ["user_id"], name: "index_ahoy_visits_on_user_id"
+    t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string "name"
@@ -23,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_02_02_115057) do
     t.integer "users_id"
     t.string "images"
     t.string "video"
+    t.bigint "ahoy_visit_id"
   end
 
   create_table "models", force: :cascade do |t|
@@ -57,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_02_02_115057) do
     t.string "Landmark"
     t.string "Description"
     t.string "size"
+    t.string "Email"
   end
 
   create_table "users", force: :cascade do |t|

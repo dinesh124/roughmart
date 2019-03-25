@@ -1,0 +1,19 @@
+<style>
+h1{
+font-family: "Times New Roman", Times, serif;
+}
+</style>
+
+<h1>no of views</h1>
+
+<%= line_chart Ahoy::Event.where_event("controller", "listingid":@listing.id).group_by_day(:time).count %>
+    group by months
+    <%= line_chart Ahoy::Event.where_event("controller", "listingid":@listing.id).group_by_month(:time).count %>
+
+
+<h1>no of ORDERS<h1>
+<%= line_chart Ahoy::Event.where_event("buynow", "listingid":@listing.id).group_by_day(:time).count %>
+
+ 
+	
+			<center><button><h1><%= link_to "Sales History", sales_path %></h1></button></center>

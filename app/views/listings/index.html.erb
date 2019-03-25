@@ -3,7 +3,13 @@ h2{
 font-family: "Times New Roman", Times, serif;
 }
 </style>
-
+<script src="timeme.js"></script>
+<script type="text/javascript">
+	TimeMe.initialize({
+		currentPageName: "my-home-page", // current page
+		idleTimeoutInSeconds: 30 // seconds
+	});		
+</script>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -80,7 +86,6 @@ font-family: "Times New Roman", Times, serif;
 		</div>
 	</div>
 <% end %>
-
 
 </div>
 

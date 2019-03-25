@@ -15,13 +15,23 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-ahoy.track "controller", listing_id: @listing.id
+        @listing = Listing.find(params[:id])
+
+ahoy.track "controller", listingid: @listing.id
+
   end
   
   def seller
 	    @listings = Listing.where(user: current_user)
 
 	end
+    
+  def graphs
+                  @listing = Listing.find(params[:id])
+	                  @new = @listing.id   	    
+
+	  
+  end
 
   # GET /listings/new
   def new

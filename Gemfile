@@ -8,7 +8,8 @@ gem 'rails', '~> 5.2.0'
 
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg', '~> 0.19.0.pre20160409114042'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -21,8 +22,15 @@ gem 'carrierwave'
 #
 gem 'devise'
 gem 'ahoy_matey'
+gem 'blazer'
 gem 'razorpay'
-
+####
+gem 'maxminddb'
+gem 'geocoder'
+####
+gem 'groupdate'
+gem "chartkick"
+####
 gem 'mini_magick' # For different versions of an image
 
 #

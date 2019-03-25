@@ -1,0 +1,1 @@
+Ahoy::Visit.create(@listings)

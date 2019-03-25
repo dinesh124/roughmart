@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
-    ahoy.track "listing", listing_id: @listing.id
+    
   end
 
   # POST /orders
@@ -23,19 +23,26 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
     @seller = @listing.user
-
+   
+  
 	
-    @order.listing_id = @listing.id
+  
+  @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
     @order.Email= current_user.email
+    @order.selleremail= @seller.email
 	
     respond_to do |format|
       if @order.save
+                
       
         format.html { redirect_to root_url, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
-		      
+		ahoy.track "buynow", listingid: @listing.id
+         @buyeremail = User.new(params[:user])
+        OrderRecievedMailer.sample_email(@order).deliver
+        OrderRecievedMailer.seller(@order).deliver
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }

@@ -10,5 +10,11 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+
+  def show
+ @user= current_user
+  @user = User.find(params[:id])
 end
+  
+  end
 

@@ -16,20 +16,67 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     ahoy.trackAll();
     </script>
+    <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
+    <style>
+h1{
+font-family: 'Lato';font-size: 32px;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
 
- <% @listing.images_urls.each do |url| %>
-	<div class="col-md-4 ">
-     <%= image_tag url %>
-	</div>
-<% end %>
-	<div class="video1">
-    <%=  video_tag @listing.video_url.to_s, :controls =>true if @listing.video?%>
-	</div>
-	 <p>
-  <strong>Name:</strong>
-  <%= @listing.name %>
+
+.button5:hover {
+  background-color: #4CAF50;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: white;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+  width: 50%;
+}
+
+
+.button2:hover {
+  background-color: #008CBA;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: white;
+}
+
+</style>
+ <div class="form-group"><p>
+  <h1> <strong><%= @listing.name %></strong></h1>
 </p>
 
+ <% @listing.images_urls.each do |url| %>
+	<div class="col-md-4" class="img-responsive" alt="Responsive image">
+     <%= image_tag url ,:size => "260x180" %>
+	</div>
+<% end %>
+	
+<div class="video1"><%=video_tag @listing.video_url.to_s, :controls =>true if @listing.video?%></div> 
+	
+   
 <p>
   <strong>Description:</strong>
   <%= @listing.description %>
@@ -40,11 +87,13 @@ document.addEventListener("DOMContentLoaded", function() {
   <%= @listing.price %>$ ONLY/-
 </p>
 <div id="listing",data:{id: <%=@listing.id%> }></div>
-	<%= link_to "BUY IT NOW", new_listing_order_path(@listing), class: "btn btn-primary"%> |
+<center>	<%= link_to "BUY IT NOW", new_listing_order_path(@listing), class: "button button2"%> </center>|
 
-
-
+</div>
+<%= link_to "View Designers Profile", usershow_path(@listing.user),class:'button button5' %>
 <% if current_user == @listing.user %>
 <%= link_to 'Edit', edit_listing_path(@listing) , class:'btn btn-link' %> |
 <% end %>
 <%= link_to 'Back', listings_path , class:'btn btn-link' %>
+
+<%= commontator_thread(@listing) %>

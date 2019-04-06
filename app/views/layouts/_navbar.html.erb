@@ -24,7 +24,7 @@
 		<% if user_signed_in? %>
                     <li><%= link_to 'New Listing', new_listing_path %></li>
 
-		 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+	 <li><%= link_to "View Profile", usershow_path(current_user) %></li>
 		   <li><%= link_to "Your Cart", purchases_path %></li>
 		 <li><%= link_to "Manage Listings", seller_path %></li>
 		 <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>

@@ -28,6 +28,8 @@ gem 'razorpay'
 gem 'maxminddb'
 gem 'geocoder'
 ####
+gem 'commontator'
+####
 gem 'groupdate'
 gem "chartkick"
 ####

@@ -8,4 +8,5 @@ class Listing < ApplicationRecord
  belongs_to :user
  has_many :orders
  has_many :visits , class_name: 'Ahoy::Visit'
+ acts_as_commontable
 end
